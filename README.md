@@ -18,9 +18,8 @@ Understand customer demographics and data quality to inform high-level marketing
 ## Tools Used
 - **Excel:** Initial data cleaning, validation, and exploratory analysis using pivot tables  
 - **SQL:** Scalable aggregation, segmentation, and data quality checks on the cleaned dataset  
-- **Power BI:** Data modelling, metric definition, and interactive demographic analysis for stakeholder decision-making  
-
-Excel was used for quick inspection and validation, SQL for reproducible and scalable analysis, and Power BI to model metrics as measures and enable interactive exploration of customer segments.
+- **Power BI:** Data modelling, metric definition, and interactive demographic analysis for stakeholder decision-making
+- **Python (pandas):** Data cleaning, validation, standardisation, and feature engineering
 
 
 ## Data Cleaning (Excel)
@@ -31,8 +30,6 @@ Excel was used for quick inspection and validation, SQL for reproducible and sca
 ### Identified Data Quality Issues
 - **496** customers (~1.98%) have missing or invalid email addresses  
 - **298** customers have undefined gender values (`"???"`)  
-
-These issues were documented and retained to avoid introducing assumptions during analysis.
 
 
 ## Analysis
@@ -56,7 +53,6 @@ Key analyses included:
 
 SQL query logic is available in:  
 `sql/analysis_queries.sql`
-
 
 ### Power BI Analysis
 Power BI was used to transform the SQL-validated dataset into an **interactive reporting layer** suitable for non-technical stakeholders.
@@ -88,7 +84,14 @@ The Power BI report consists of three pages:
 3. **City × Gender Deep Dive**  
    - Matrix view of customer counts by city and gender  
    - Gender distribution for selected cities  
-   - Drill-down capability to compare locations  
+   - Drill-down capability to compare locations
+  
+
+### Python Analysis
+Key steps performed in the Jupyter notebook:
+- Standardised missing values by converting blanks to strings    
+- Validated numeric fields (e.g. setting age to numeric and flagging implausible values)
+- Created a reusable derived field, age bands, for consistent segmentation
 
 
 ## Insights
